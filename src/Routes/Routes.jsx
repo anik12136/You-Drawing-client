@@ -8,6 +8,10 @@ import Classes from "../Pages/Classes/Classes";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
+import StudentHome from "../Pages/Dashboard/StudentHome/StudentHome";
+import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
 
   export const router = createBrowserRouter([
     {
@@ -28,10 +32,29 @@ import SignUp from "../Pages/SignUp/SignUp";
         },
         {
           path: 'dashboard',
-          element: <Dashboard></Dashboard>
+          element: <Dashboard></Dashboard>,
+          children: [
+            {
+              path: 'allUsers',
+              element: <AllUsers></AllUsers>
+            },
+            {
+              path: 'adminHome',
+              element: <AdminHome></AdminHome>
+            },
+            {
+              path: 'studentHome',
+              element: <StudentHome></StudentHome>
+            },
+            {
+              path: 'instructorHome',
+              element: <InstructorHome></InstructorHome>
+            },
+            
+          ]
         },
         {
-          path: 'login',
+          path: '/mycart',
           element: <Login></Login>
         },
         {

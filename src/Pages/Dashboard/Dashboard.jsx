@@ -29,6 +29,12 @@ const Dashboard = () => {
       <li><Link to="/dashboard/instructorHome">Instructor Home</Link></li>
       
     </div>  
+    <div className="divider"></div> 
+ 
+      <div>
+      <li><Link to="/dashboard/allUsers">AllUsers Home</Link></li>
+      
+    </div>  
     </ul> 
   
   </div>

@@ -50,11 +50,15 @@ import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
               path: 'instructorHome',
               element: <InstructorHome></InstructorHome>
             },
+            {
+              path: 'allUsers',
+              element: <AllUsers></AllUsers>
+            },
             
           ]
         },
         {
-          path: '/mycart',
+          path: '/login',
           element: <Login></Login>
         },
         {

@@ -39,19 +39,27 @@ import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
               element: <AllUsers></AllUsers>
             },
             {
-              path: 'adminHome',
+              path: 'manageClasses',
               element: <AdminHome></AdminHome>
             },
             {
-              path: 'studentHome',
+              path: 'mySelectedClass',
               element: <StudentHome></StudentHome>
             },
             {
-              path: 'instructorHome',
+              path: 'myEnrolledClass',
               element: <InstructorHome></InstructorHome>
             },
             {
-              path: 'allUsers',
+              path: 'payment',
+              element: <AllUsers></AllUsers>
+            },
+            {
+              path: 'addAClass',
+              element: <AllUsers></AllUsers>
+            },
+            {
+              path: 'myClasses',
               element: <AllUsers></AllUsers>
             },
             

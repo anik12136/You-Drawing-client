@@ -23,8 +23,9 @@ const isInstructor = false;
       {
         isAdmin && 
         <div>
-             <li><Link to="/dashboard/adminHome">Admin Home</Link></li>
-             <li><Link to="/dashboard/allUsers">AllUsers</Link></li>
+              <h2>Admin</h2>
+             <li><Link to="/dashboard/manageClasses">Manage Classes</Link></li>
+             <li><Link to="/dashboard/allUsers">Manage Users</Link></li>
              <div className="divider"></div> 
         </div>
          
@@ -33,7 +34,9 @@ const isInstructor = false;
       {
        isStudent &&
        <div>
-        <li><Link to="/dashboard/studentHome">Student Home</Link></li>
+        <li><Link to="/dashboard/mySelectedClass">My Selected Classes</Link></li>
+        <li><Link to="/dashboard/myEnrolledClass">My Enrolled Classes</Link></li>
+        <li><Link to="/dashboard/payment">Payment</Link></li>
         <div className="divider"></div>
       </div> 
       }
@@ -42,7 +45,8 @@ const isInstructor = false;
       {
         isInstructor &&
         <div>
-        <li><Link to="/dashboard/instructorHome">Instructor Home</Link></li>
+        <li><Link to="/dashboard/addAClass">Add a Class</Link></li>
+        <li><Link to="/dashboard/myClasses">My Classes</Link></li>
         <div className="divider"></div>
       </div>
       }  

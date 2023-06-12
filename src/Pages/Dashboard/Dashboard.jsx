@@ -1,6 +1,12 @@
 import { Link, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
+
+    // to do load users data
+const isAdmin = true;
+const isStudent = false;
+const isInstructor = false;
+
     return (
         <div className="drawer lg:drawer-open">
   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -14,27 +20,33 @@ const Dashboard = () => {
     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
       {/* Sidebar content here */}
-      <div>
-      <li><Link to="/dashboard/adminHome">Admin Home</Link></li>
+      {
+        isAdmin && 
+        <div>
+             <li><Link to="/dashboard/adminHome">Admin Home</Link></li>
+             <li><Link to="/dashboard/allUsers">AllUsers</Link></li>
+             <div className="divider"></div> 
+        </div>
+         
+      }
+    
+      {
+       isStudent &&
+       <div>
+        <li><Link to="/dashboard/studentHome">Student Home</Link></li>
+        <div className="divider"></div>
+      </div> 
+      }
+     
       
-    </div> 
-    <div className="divider"></div> 
-      <div>
-      <li><Link to="/dashboard/studentHome">Student Home</Link></li>
-      
-    </div> 
-    <div className="divider"></div> 
- 
-      <div>
-      <li><Link to="/dashboard/instructorHome">Instructor Home</Link></li>
-      
-    </div>  
-    <div className="divider"></div> 
- 
-      <div>
-      <li><Link to="/dashboard/allUsers">AllUsers Home</Link></li>
-      
-    </div>  
+      {
+        isInstructor &&
+        <div>
+        <li><Link to="/dashboard/instructorHome">Instructor Home</Link></li>
+        <div className="divider"></div>
+      </div>
+      }  
+
     </ul> 
   
   </div>

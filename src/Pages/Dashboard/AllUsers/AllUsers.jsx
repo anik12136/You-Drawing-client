@@ -1,12 +1,20 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const AllUsers = () => {
+
+        const { data: users = [], refetch } = useQuery([''], async () => {
+            const res = await fetch('http://localhost:8000/users')
+            return res.json();
+        });
+
+
     const data = [
         { id: 1, name: 'John Doe', email: 'johndoe@example.com' },
         { id: 2, name: 'Jane Smith', email: 'janesmith@example.com' },
         { id: 3, name: 'Bob Johnson', email: 'bobjohnson@example.com' },
       ];
-    
+    console.log(users);
       return (
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">

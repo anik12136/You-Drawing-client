@@ -4,8 +4,8 @@ const Dashboard = () => {
 
     // to do load users data
 const isAdmin = true;
-const isStudent = false;
-const isInstructor = false;
+const isStudent = true;
+const isInstructor = true;
 
     return (
         <div className="drawer lg:drawer-open">
@@ -34,6 +34,7 @@ const isInstructor = false;
       {
        isStudent &&
        <div>
+        <h2>Student</h2>
         <li><Link to="/dashboard/mySelectedClass">My Selected Classes</Link></li>
         <li><Link to="/dashboard/myEnrolledClass">My Enrolled Classes</Link></li>
         <li><Link to="/dashboard/payment">Payment</Link></li>
@@ -45,6 +46,7 @@ const isInstructor = false;
       {
         isInstructor &&
         <div>
+        <h2>Instructor</h2>
         <li><Link to="/dashboard/addAClass">Add a Class</Link></li>
         <li><Link to="/dashboard/myClasses">My Classes</Link></li>
         <div className="divider"></div>

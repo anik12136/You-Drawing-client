@@ -9,9 +9,12 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
-import AdminHome from "../Pages/Dashboard/AdminHome/AdminHome";
-import StudentHome from "../Pages/Dashboard/StudentHome/StudentHome";
-import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
+import ManageClasses from "../Pages/Dashboard/AdminHome/ManageClasses/ManageClasses";
+import MySelectedClass from "../Pages/Dashboard/StudentHome/mySelectedClass/MySelectedClass";
+import MyEnrolledClass from "../Pages/Dashboard/StudentHome/MyEnrolledClass/MyEnrolledClass";
+import Payment from "../Pages/Dashboard/StudentHome/Payment/Payment";
+import AddAClasses from "../Pages/Dashboard/InstructorHome/AddAClass/AddAClasses";
+import MyClasses from "../Pages/Dashboard/InstructorHome/MyClasses/MyClasses";
 
   export const router = createBrowserRouter([
     {
@@ -40,27 +43,27 @@ import InstructorHome from "../Pages/Dashboard/InstructorHome/InstructorHome";
             },
             {
               path: 'manageClasses',
-              element: <AdminHome></AdminHome>
+              element: <ManageClasses></ManageClasses>
             },
             {
               path: 'mySelectedClass',
-              element: <StudentHome></StudentHome>
+              element: <MySelectedClass></MySelectedClass>
             },
             {
               path: 'myEnrolledClass',
-              element: <InstructorHome></InstructorHome>
+              element: <MyEnrolledClass></MyEnrolledClass>
             },
             {
               path: 'payment',
-              element: <AllUsers></AllUsers>
+              element: <Payment></Payment>
             },
             {
               path: 'addAClass',
-              element: <AllUsers></AllUsers>
+              element: <AddAClasses></AddAClasses>
             },
             {
               path: 'myClasses',
-              element: <AllUsers></AllUsers>
+              element: <MyClasses></MyClasses>
             },
             
           ]

@@ -136,10 +136,15 @@ const AddAClasses = () => {
                                 <input type="number"  {...register("Price", { required: true })} placeholder="Price" className="input input-bordered" />
                                 {errors.photoURL && <span className="text-red-600">Price is required</span>}
                             </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Status</span>
+                                </label>
+                                <input type="text" value="pending"  {...register("status", { required: true })}  className="input input-bordered" />
+                                {errors.photoURL && <span className="text-red-600">Price is required</span>}
+                            </div>
 
-
-
-                           
+        
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Add class" />
                             </div>

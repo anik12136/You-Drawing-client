@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import { FaTrashAlt, FaUserShield } from 'react-icons/fa';
+import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 
 const AllUsers = () => {
+
 
         const { data: users = [], refetch } = useQuery([''], async () => {
             const res = await fetch('http://localhost:8000/users')

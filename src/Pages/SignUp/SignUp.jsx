@@ -1,13 +1,10 @@
-// import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-// import app from '../../Firebase/firebase.config';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 
-// const auth = getAuth(app);
 
 
 const SignUp = () => {
@@ -26,7 +23,8 @@ const SignUp = () => {
 
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        const insertUser = { name: data.name, email: data.email, image:data.photoURL }
+                        const insertUser = { name: data.name, email: data.email, image:data.photoURL,role:data.role }
+                        console.log(insertUser);
                         fetch('http://localhost:8000/users', {
                             method: 'POST',
                             headers: {
@@ -49,8 +47,6 @@ const SignUp = () => {
                                 }
                             })
 
-
-
                     })
                     .catch(error => console.log(error))
             })
@@ -69,6 +65,14 @@ const SignUp = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
+                           
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">role</span>
+                                </label>
+                                <input type="text"  {...register("role", { required: false })} name="role" value="student" placeholder="role" className="input input-bordered" />
+                            </div>
+
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -101,9 +105,7 @@ const SignUp = () => {
                                 })} placeholder="password" className="input input-bordered" />
                                 {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                                 {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+                               
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />

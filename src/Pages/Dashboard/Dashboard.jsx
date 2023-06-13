@@ -1,63 +1,177 @@
+import { useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Dashboard = () => {
 
-    // to do load users data
-const isAdmin = true;
-const isStudent = true;
-const isInstructor = true;
+  const [checkUser, setCheckUser] = useState([])
+  // const [isUser, setIsUser] = useState('isStudent')
 
-    return (
-        <div className="drawer lg:drawer-open">
-  <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-  <div className="drawer-content flex flex-col items-center justify-center">
-    {/* Page content here */}
-    <Outlet></Outlet>
-    <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
-  
-  </div>
-  <div className="drawer-side">
-    <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-    <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
-      {/* Sidebar content here */}
-      {
-        isAdmin && 
-        <div>
-              <h2>Admin</h2>
-             <li><Link to="/dashboard/manageClasses">Manage Classes</Link></li>
-             <li><Link to="/dashboard/allUsers">Manage Users</Link></li>
-             <div className="divider"></div> 
-        </div>
-         
-      }
+  const { user } = useContext(AuthContext);
+
+    // to do load users data
+
+ useEffect(() => {
+        fetch(`http://localhost:8000/users/check/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setCheckUser(data))
+            // .catch(error => console.error(error))
+    }, [user]);
     
-      {
-       isStudent &&
-       <div>
-        <h2>Student</h2>
+
+if (checkUser.role === 'admin') {
+  
+  return (
+    <div className="drawer lg:drawer-open">
+<input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+<div className="drawer-content flex flex-col items-center justify-center">
+{/* Page content here */}
+<Outlet></Outlet>
+<label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+
+</div>
+<div className="drawer-side">
+<label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
+<ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+  {/* Sidebar content here */}
+
+   
+    <div>
+          <h2>Admin</h2>
+         <li><Link to="/dashboard/manageClasses">Manage Classes</Link></li>
+         <li><Link to="/dashboard/allUsers">Manage Users</Link></li>
+         <div className="divider"></div> 
+    </div>  
+
+</ul> 
+
+</div>
+</div>
+);
+
+}
+
+
+else if (checkUser.role === 'instructor') {
+  return (
+    <div className="drawer lg:drawer-open">
+<input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+<div className="drawer-content flex flex-col items-center justify-center">
+{/* Page content here */}
+<Outlet></Outlet>
+<label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+
+</div>
+<div className="drawer-side">
+<label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
+<ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+  {/* Sidebar content here */}
+
+   
+  <div>
+         <h2>Instructor</h2>
+         <li><Link to="/dashboard/addAClass">Add a Class</Link></li>
+         <li><Link to="/dashboard/myClasses">My Classes</Link></li>
+         <div className="divider"></div>
+       </div>  
+
+</ul> 
+
+</div>
+</div>
+);
+
+}
+
+else {
+  return (
+    <div className="drawer lg:drawer-open">
+<input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+<div className="drawer-content flex flex-col items-center justify-center">
+{/* Page content here */}
+<Outlet></Outlet>
+<label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+
+</div>
+<div className="drawer-side">
+<label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
+<ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+  {/* Sidebar content here */}
+
+   
+  <div>
+         <h2>Student</h2>
         <li><Link to="/dashboard/mySelectedClass">My Selected Classes</Link></li>
         <li><Link to="/dashboard/myEnrolledClass">My Enrolled Classes</Link></li>
-        <li><Link to="/dashboard/payment">Payment</Link></li>
+       <li><Link to="/dashboard/payment">Payment</Link></li>
         <div className="divider"></div>
-      </div> 
-      }
+      </div>  
+
+</ul> 
+
+</div>
+</div>
+);
+
+}
+
+
+
+
+
+
+//     return (
+//         <div className="drawer lg:drawer-open">
+//   <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+//   <div className="drawer-content flex flex-col items-center justify-center">
+//     {/* Page content here */}
+//     <Outlet></Outlet>
+//     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+  
+//   </div>
+//   <div className="drawer-side">
+//     <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
+//     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+//       {/* Sidebar content here */}
+
+//       {
+//         isAdmin && 
+//         <div>
+//               <h2>Admin</h2>
+//              <li><Link to="/dashboard/manageClasses">Manage Classes</Link></li>
+//              <li><Link to="/dashboard/allUsers">Manage Users</Link></li>
+//              <div className="divider"></div> 
+//         </div>
+         
+//       }
+    
+//       {
+//        isStudent &&
+//        <div>
+//         <h2>Student</h2>
+//         <li><Link to="/dashboard/mySelectedClass">My Selected Classes</Link></li>
+//         <li><Link to="/dashboard/myEnrolledClass">My Enrolled Classes</Link></li>
+//         <li><Link to="/dashboard/payment">Payment</Link></li>
+//         <div className="divider"></div>
+//       </div> 
+//       }
      
       
-      {
-        isInstructor &&
-        <div>
-        <h2>Instructor</h2>
-        <li><Link to="/dashboard/addAClass">Add a Class</Link></li>
-        <li><Link to="/dashboard/myClasses">My Classes</Link></li>
-        <div className="divider"></div>
-      </div>
-      }  
+//       {
+//         isInstructor &&
+//         <div>
+//         <h2>Instructor</h2>
+//         <li><Link to="/dashboard/addAClass">Add a Class</Link></li>
+//         <li><Link to="/dashboard/myClasses">My Classes</Link></li>
+//         <div className="divider"></div>
+//       </div>
+//       }  
 
-    </ul> 
+//     </ul> 
   
-  </div>
-</div>
-    );
+//   </div>
+// </div>
+//     );
 };
 
 export default Dashboard;

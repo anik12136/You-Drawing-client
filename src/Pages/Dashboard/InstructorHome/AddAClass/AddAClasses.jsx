@@ -14,7 +14,31 @@ const AddAClasses = () => {
 
     const onSubmit = data => {
 
-        console.log(data);
+        
+
+        fetch('http://localhost:8000/allClasses', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(data)
+                            
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'Class added successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    
+                                }
+                            });
+
         // createUser(data.email, data.password)
         //     .then(result => {
 
@@ -53,7 +77,7 @@ const AddAClasses = () => {
 
         }
 
-        console.log(user)
+        // console.log(data);
     return (
         <div>
              <div className="hero min-h-screen bg-base-200">
@@ -69,7 +93,7 @@ const AddAClasses = () => {
                                 <label className="label">
                                     <span className="label-text">Instructor name</span>
                                 </label>
-                                <input type="text" value={user.displayName}  {...register("InstructorName", { required: false })}  className="input input-bordered"/>
+                                <input type="text" value={user?.displayName}  {...register("InstructorName", { required: true })}  className="input input-bordered"/>
                                 {errors.photoURL && <span className="text-red-600">Instructor name is required</span>}
                             </div>
 
@@ -77,7 +101,7 @@ const AddAClasses = () => {
                                 <label className="label">
                                     <span className="label-text">Instructor email</span>
                                 </label>
-                                <input type="text" value={user.email}  {...register("InstructorEmail", { required: false })}  className="input input-bordered"/>
+                                <input type="text" value={user?.email}  {...register("InstructorEmail", { required: true })}  className="input input-bordered"/>
                                 {errors.photoURL && <span className="text-red-600">Instructor email is required</span>}
                             </div>
 

@@ -15,6 +15,7 @@ import MyEnrolledClass from "../Pages/Dashboard/StudentHome/MyEnrolledClass/MyEn
 import Payment from "../Pages/Dashboard/StudentHome/Payment/Payment";
 import AddAClasses from "../Pages/Dashboard/InstructorHome/AddAClass/AddAClasses";
 import MyClasses from "../Pages/Dashboard/InstructorHome/MyClasses/MyClasses";
+import NotFound from "../Pages/404/NotFound";
 
   export const router = createBrowserRouter([
     {
@@ -78,6 +79,10 @@ import MyClasses from "../Pages/Dashboard/InstructorHome/MyClasses/MyClasses";
         },
         
       ]
+    },
+    {
+      path: '*',
+      element: <NotFound></NotFound>
     },
 
   ]);

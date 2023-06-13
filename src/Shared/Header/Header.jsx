@@ -14,8 +14,8 @@ const Header = () => {
 }
 
     return (
-        <div className="">
-            <div className="navbar bg-fuchsia-200 px-20	">
+        <div className="mx-20 my-3 rounded-tl-lg rounded-br-lg">
+            <div className="navbar bg-fuchsia-200 px-20">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -62,11 +62,11 @@ const Header = () => {
             </div>
           }
 
-  {
+       {
             user ? <>
-                <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
+                <button onClick={handleLogOut} className="btn btn-outline btn-default">LogOut</button>
             </> : <>
-                <li><Link to="/login">Login</Link></li>
+                <li><Link to="/login" className="btn btn-outline btn-default">Login</Link></li>
             </>
         }
   </div>

@@ -1,7 +1,6 @@
 import React from 'react';
 
 const MyClassesCard = ({cls}) => {
-    console.log(cls)
     return (
       <div className="card w-60 bg-base-100 shadow-xl h-96">
         <figure><img src={cls.ClassImage} alt="Shoes" /></figure>

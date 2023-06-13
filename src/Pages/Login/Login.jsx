@@ -51,15 +51,17 @@ const Login = () => {
 
     return (
 
-        <div>
+        <div className='-mt-10'>
+          <div className="hero min-h-screen">
 
+                <div className="hero-content flex-col lg:flex-row-reverse">
+                <img src="https://img.freepik.com/free-vector/my-password-concept-illustration_114360-4294.jpg" alt="" className='h-[500px] mx-10' />
 
-            <div className="hero ">
-            {/* <h1 className="text-5xl font-bold">Login now!</h1> */}
-                <div className="hero-content my-6 ">
                     <div className="card  w-full max-w-sm shadow-2xl bg-base-100">
-                        <div className="card-body">
-                            <form action="" onSubmit={handleLogin} >
+                        <div className="text-center lg:text-left">
+                        </div>
+                        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                            <form action="" onSubmit={handleLogin} className="card-body">
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -75,20 +77,15 @@ const Login = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Login</button>
+                                    <button className="btn btn-outline btn-default">Login</button>
                                 </div>
-                                {/* {
-                                    !user &&
-                                    <div className='flex justify-center'>
-                                        <button onClick={handleGoogleSignIn} className="btn btn-wide  mt-3">Login with Google</button>
-                                    </div>
-                                } */}
 
                                 {
                                     !user && <SocialLogin></SocialLogin>
                                 }
-                            </form>
-                            <p className='my-4 text-center'>New to <span className=' font-bold'>Wonder Land</span> ? <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
+                            </form>    
+
+                            <p className='my-4 text-center'>New to <span className=' font-bold'>YouDrawing</span> ? <Link className='text-pink-400 font-bold' to="/signup">Sign Up</Link> </p>
                         </div>
                     </div>
                 </div>

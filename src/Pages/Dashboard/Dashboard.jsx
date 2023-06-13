@@ -23,7 +23,8 @@ const Dashboard = () => {
 if (checkUser.role === 'admin') {
   
   return (
-    <div className="drawer lg:drawer-open">
+   <div className="ms-20">
+     <div className="drawer lg:drawer-open">
 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 <div className="drawer-content flex flex-col items-center justify-center">
 {/* Page content here */}
@@ -33,12 +34,12 @@ if (checkUser.role === 'admin') {
 </div>
 <div className="drawer-side">
 <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-<ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+<ul className="menu p-4 w-80 h-full bg-fuchsia-200 text-base-content">
   {/* Sidebar content here */}
 
    
-    <div>
-          <h2>Admin</h2>
+  <div className="mx-16">
+         <h2 className="text-3xl ms-3">Admin</h2>
          <li><Link to="/dashboard/manageClasses">Manage Classes</Link></li>
          <li><Link to="/dashboard/allUsers">Manage Users</Link></li>
          <div className="divider"></div> 
@@ -48,6 +49,7 @@ if (checkUser.role === 'admin') {
 
 </div>
 </div>
+   </div>
 );
 
 }
@@ -55,7 +57,8 @@ if (checkUser.role === 'admin') {
 
 else if (checkUser.role === 'instructor') {
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="ms-20">
+      <div className="drawer lg:drawer-open ">
 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 <div className="drawer-content flex flex-col items-center justify-center">
 {/* Page content here */}
@@ -65,12 +68,12 @@ else if (checkUser.role === 'instructor') {
 </div>
 <div className="drawer-side">
 <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-<ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+<ul className="menu p-4 w-80 h-full bg-fuchsia-200 text-base-content">
   {/* Sidebar content here */}
 
    
-  <div>
-         <h2>Instructor</h2>
+  <div className="mx-16">
+         <h2 className="text-3xl ms-3">Instructor</h2>
          <li><Link to="/dashboard/addAClass">Add a Class</Link></li>
          <li><Link to="/dashboard/myClasses">My Classes</Link></li>
          <div className="divider"></div>
@@ -80,13 +83,15 @@ else if (checkUser.role === 'instructor') {
 
 </div>
 </div>
+    </div>
 );
 
 }
 
 else {
   return (
-    <div className="drawer lg:drawer-open">
+  <div className="ms-20">
+      <div className="drawer lg:drawer-open">
 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
 <div className="drawer-content flex flex-col items-center justify-center">
 {/* Page content here */}
@@ -96,12 +101,12 @@ else {
 </div>
 <div className="drawer-side">
 <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-<ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+<ul className="menu p-4 w-80 h-full bg-fuchsia-200 text-base-content">
   {/* Sidebar content here */}
 
    
-  <div>
-         <h2>Student</h2>
+  <div className="mx-16">
+         <h2 className="text-3xl ms-3">Student</h2>
         <li><Link to="/dashboard/mySelectedClass">My Selected Classes</Link></li>
         <li><Link to="/dashboard/myEnrolledClass">My Enrolled Classes</Link></li>
        <li><Link to="/dashboard/payment">Payment</Link></li>
@@ -112,6 +117,7 @@ else {
 
 </div>
 </div>
+  </div>
 );
 
 }

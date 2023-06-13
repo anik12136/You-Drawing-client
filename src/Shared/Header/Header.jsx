@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from './../../Provider/AuthProvider';
+import "./Header.css"
 
 const Header = () => {
 
@@ -13,8 +14,8 @@ const Header = () => {
 }
 
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <div className="">
+            <div className="navbar bg-fuchsia-200 px-20	">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,7 +29,9 @@ const Header = () => {
       <li><Link to="/dashboard">Dashboard</Link></li>
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl">YouDrawing</a>
+
+    {/* todo logo */}
+    <Link to="/" className="btn btn-ghost normal-case text-xl">YouDrawing</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -48,7 +51,17 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-  {/* <li><Link to="/login">Log in</Link></li> */}
+
+       {
+            user &&
+            <div className="hover-container">
+              <img className='rounded-full me-2' src={user.photoURL} alt="" />
+              <div className="hover-text">
+                <span>{user.displayName}</span>
+              </div>
+            </div>
+          }
+
   {
             user ? <>
                 <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>

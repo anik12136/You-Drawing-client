@@ -12,12 +12,13 @@ const Dashboard = () => {
     // to do load users data
 
  useEffect(() => {
-        fetch(`http://localhost:8000/users/check/${user?.email}`)
+        // fetch(`http://localhost:8000/users/check/${user?.email}`)
+        fetch(`https://server-assignment-12-anik12136.vercel.app/users/check/${user?.email}`)
             .then(res => res.json())
             .then(data => setCheckUser(data))
             // .catch(error => console.error(error))
     }, [user]);
-    
+
 
 if (checkUser.role === 'admin') {
   

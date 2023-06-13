@@ -4,7 +4,8 @@ import InstructorCard from "./instructorCard";
 const Instructors = () => {
 
     const { data: instructors = [], refetch } = useQuery([''], async () => {
-        const res = await fetch('http://localhost:8000/instructors')
+        // const res = await fetch('http://localhost:8000/instructors')
+        const res = await fetch('https://server-assignment-12-anik12136.vercel.app/instructors')
         return res.json();
     });
 

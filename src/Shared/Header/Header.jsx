@@ -12,7 +12,6 @@ const Header = () => {
         .then(() => { })
         .catch(error => console.log(error));
 }
-
     return (
         <div className="mx-20 my-3 rounded-tl-lg rounded-br-lg">
             <div className="navbar bg-fuchsia-200 px-20">
@@ -30,7 +29,7 @@ const Header = () => {
       </ul>
     </div>
 
-    {/* todo logo */}
+    <img src="https://w1.pngwing.com/pngs/712/352/png-transparent-graphic-design-icon-icon-design-drawing-pencil-logo-text-black-and-white-line.png" alt="" className="rounded-full h-10" />
     <Link to="/" className="btn btn-ghost normal-case text-xl">YouDrawing</Link>
   </div>
   <div className="navbar-center hidden lg:flex">

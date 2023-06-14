@@ -8,7 +8,8 @@ const MyClasses = () => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:8000/allClasses/${user?.email}`)
+        // fetch(`http://localhost:8000/allClasses/${user?.email}`)
+        fetch(`https://server-assignment-12-anik12136.vercel.app/allClasses/${user?.email}`)
             .then(res => res.json())
             .then(data => setMyClass(data))
     }, [user]);

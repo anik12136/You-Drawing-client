@@ -5,8 +5,8 @@ import ManageClassesCard from './ManageClassesCard';
 const ManageClasses = () => {
 
     const { data: allClasses = [], refetch } = useQuery([''], async () => {
-        // const res = await fetch('http://localhost:8000/instructors')
-        const res = await fetch('http://localhost:8000/allClasses')
+        // const res = await fetch('http://localhost:8000/allClasses')
+        const res = await fetch('https://server-assignment-12-anik12136.vercel.app/allClasses')
         return res.json();
     });
 console.log(allClasses);

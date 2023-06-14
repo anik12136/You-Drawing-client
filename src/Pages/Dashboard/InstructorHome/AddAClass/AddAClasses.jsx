@@ -16,7 +16,8 @@ const AddAClasses = () => {
 
         
 
-        fetch('http://localhost:8000/allClasses', {
+        // fetch('http://localhost:8000/allClasses', {
+        fetch('https://server-assignment-12-anik12136.vercel.app/allClasses', {
                             method: 'POST',
                             headers: {
                                 'content-type': 'application/json'

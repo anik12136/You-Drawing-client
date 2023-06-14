@@ -4,7 +4,8 @@ import ClassesCard from "./ClassesCard";
 const Classes = () => {
 
     const { data: approvedClasses = [], refetch } = useQuery([''], async () => {
-        const res = await fetch('http://localhost:8000/approved')
+        const res = await fetch('https://server-assignment-12-anik12136.vercel.app/approved')
+        // const res = await fetch('http://localhost:8000/approved')
         return res.json();
     });
 // console.log(approvedClasses);

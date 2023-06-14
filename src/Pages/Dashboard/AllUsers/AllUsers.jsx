@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { motion } from 'framer-motion';
 
 const AllUsers = () => {
 
@@ -55,7 +56,16 @@ const AllUsers = () => {
 
 
       return (
-        <div className="overflow-x-auto">
+        <div>
+          <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="box"
+      >
+          <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-300">
             <thead>
               <tr>
@@ -63,12 +73,12 @@ const AllUsers = () => {
                 <th className="py-2 px-4 border-b bg-blue-500 text-white">Name</th>
                 <th className="py-2 px-4 border-b bg-green-500 text-white">Email</th>
                 <th className="py-2 px-4 border-b bg-purple-500 text-white">Role</th>
-                <th className="py-2 px-4 border-b bg-purple-500 text-white">Action</th>
               </tr>
             </thead>
             <tbody>
               {users.map((user,index) => (
                 <tr key={user._id}>
+                  
                   <td className="py-2 px-4 border-b">{index+1}</td>
                   <td className="py-2 px-4 border-b">{user.name}</td>
                   <td className="py-2 px-4 border-b">{user.email}</td>
@@ -81,13 +91,15 @@ const AllUsers = () => {
                        }
                        
                   </td>  
-                   {/* <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td> */}
-                   <td><button  className="btn btn-ghost bg-red-600  text-white mx-2"><FaTrashAlt></FaTrashAlt></button></td>
+                  
               
                 </tr>
               ))}
             </tbody>
           </table>
+        </div>
+      </motion.div>
+          
         </div>
       );
     };

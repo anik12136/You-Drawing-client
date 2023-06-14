@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { motion } from 'framer-motion';
+
 
 const Dashboard = () => {
 
@@ -39,9 +41,34 @@ if (checkUser.role === 'admin') {
 
    
   <div className="mx-16">
-         <h2 className="text-3xl ms-3">Admin</h2>
-         <li><Link to="/dashboard/manageClasses">Manage Classes</Link></li>
+  <h2 className="text-3xl ms-3">Admin</h2>
+
+  <div>
+  <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="box"
+      >
+        <li><Link to="/dashboard/manageClasses">Manage Classes</Link></li>
+
+      </motion.div>
+  </div>
+  <div>
+  <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="box"
+      >
          <li><Link to="/dashboard/allUsers">Manage Users</Link></li>
+
+      </motion.div>
+  </div>
          <div className="divider"></div> 
     </div>  
 
@@ -74,8 +101,30 @@ else if (checkUser.role === 'instructor') {
    
   <div className="mx-16">
          <h2 className="text-3xl ms-3">Instructor</h2>
+
+         <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="box"
+      >
          <li><Link to="/dashboard/addAClass">Add a Class</Link></li>
+
+      </motion.div>
+
+         <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="box"
+      >
          <li><Link to="/dashboard/myClasses">My Classes</Link></li>
+
+      </motion.div>
          <div className="divider"></div>
        </div>  
 
@@ -107,9 +156,42 @@ else {
    
   <div className="mx-16">
          <h2 className="text-3xl ms-3">Student</h2>
+
+         <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="box"
+      >
         <li><Link to="/dashboard/mySelectedClass">My Selected Classes</Link></li>
-        <li><Link to="/dashboard/myEnrolledClass">My Enrolled Classes</Link></li>
+
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="box"
+      >
+         <li><Link to="/dashboard/myClasses">My Classes</Link></li>
+
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="box"
+      >
        <li><Link to="/dashboard/payment">Payment</Link></li>
+
+      </motion.div>
         <div className="divider"></div>
       </div>  
 
